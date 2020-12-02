@@ -1,0 +1,21 @@
+div input {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: 1px solid #111;
+}
+
+div input:hover {
+  background-color: #fafafa;
+}
+
+div textarea {
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px 0;
+  border: 1px solid #111;
+}
+
+div textarea:hover {
+  background-color: #fafafa;
+}

@@ -1,0 +1,50 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  background-color: rgba(0, 0, 139, 0.68);
+}
+
+.logo {
+  margin-left: 45px;
+  font-size: 1.45em;
+  color: white;
+  text-transform: uppercase;
+}
+
+li {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  position: center;
+}
+
+.nav-links li {
+  padding: 0px 20px;
+  cursor: pointer;
+}
+
+.sign-links {
+  border: none;
+  border-radius: 50px;
+  display: inline-block;
+  outline: none;
+  margin-right: 30px;
+  display: flex;
+  list-style: none;
+  position: center;
+}
+
+.signIn-links {
+  padding: 0px 10px;
+  cursor: pointer;
+}

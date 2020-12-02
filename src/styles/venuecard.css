@@ -1,0 +1,6 @@
+.venueCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 50vh;
+  background-color: rgba(0, 0, 139, 0.68);
+}

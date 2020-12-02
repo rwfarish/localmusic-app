@@ -1,0 +1,30 @@
+.header-container {
+  min-height: 40vh;
+  background-image: url("https://pamharringtonexclusives.com/wp-content/uploads/2019/02/chas-at-night-1500x609.jpg");
+  box-shadow: 0 3000px rgba(0, 0, 0, 0.5);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-blend-mode: darken;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.darken {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://pamharringtonexclusives.com/wp-content/uploads/2019/02/chas-at-night-1500x609.jpg");
+}
+
+/* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), */
+
+.header-tagline {
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  font-weight: 650;
+}
