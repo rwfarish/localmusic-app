@@ -1,4 +1,4 @@
-# CHS Live
+<h1 align="center">:musical_note: CHS Live :musical_note:</h1> 
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -26,9 +26,9 @@
 
 CHS Live aims to further the Charleston music community experience by bringing together performers, venues, and fans. After noticing a void in the Charleston music press, an initiative has been made to provide a digital solution for the Charleston music community.  
 
-* Venues - can advertise their music schedule, while engaging with local musicians and music lovers
-* Performers - can promote their shows and find venues to network with
-* Local, and visiting, music fans - can keep up to date with the rich local music culture here in Charleston
+* :speaker: Venues - can advertise their music schedule, while engaging with local musicians and music lovers
+* :microphone: Performers - can promote their shows and find venues to network with
+* :headphones: Local, and visiting, music fans - can keep up to date with the rich local music culture here in Charleston
 
 
 ### Built With
