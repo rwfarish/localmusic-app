@@ -74,6 +74,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [LinkedIn](https://www.linkedin.com/in/bo-farish/) - rwfarish@gmail.com
+Bo Farish - [LinkedIn](https://www.linkedin.com/in/bo-farish/) - rwfarish@gmail.com
 
 
