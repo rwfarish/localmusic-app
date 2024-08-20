@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
-import axios from 'axios';
-import Navbar from '../components/Navbar';
-import SignInModal from '../components/SignInModal'; 
-import SignUpModal from '../components/SignUpModal';
-import CreateEvent from '../components/CreateEvent';
-import CreateVenue from '../components/CreateVenue'; 
-import CreateArtist from '../components/CreateArtist'; 
-import HeaderPic from '../components/HeaderPic'; 
-import EventCardContainer from '../components/EventCardContainer';
+import React, { useState } from 'react';
 import ArtistCardContainer from '../components/ArtistCardContainer';
-import VenueCardContainer from '../components/VenueCardContainer'; 
-import "../styles/home.css"; 
+import CreateArtist from '../components/CreateArtist';
+import CreateEvent from '../components/CreateEvent';
+import CreateVenue from '../components/CreateVenue';
+import EventCardContainer from '../components/EventCardContainer';
+import HeaderPic from '../components/HeaderPic';
+import Navbar from '../components/Navbar';
+import SignInModal from '../components/SignInModal';
+import SignUpModal from '../components/SignUpModal';
+import VenueCardContainer from '../components/VenueCardContainer';
+import "../styles/home.css";
 
 export default function Home({signedInUser, setSignedInUser}) {
     const [openSignIn, setOpenSignIn] = useState(false);
@@ -58,7 +57,7 @@ export default function Home({signedInUser, setSignedInUser}) {
     }
 
     return (
-        <div>
+        <>
             <Navbar handleOpenSignIn={handleOpenSignIn} handleOpenSignUp={handleOpenSignUp} handleOpenCreateEvent={handleOpenCreateEvent} handleOpenCreateVenue={handleOpenCreateVenue} handleOpenCreateArtist={handleOpenCreateArtist} signedInUser={signedInUser} setSignedInUser={setSignedInUser} />
             <CreateEvent openCreateEvent={openCreateEvent} handleCloseCreateEvent={handleCloseCreateEvent} setSignedInUser={setSignedInUser}/>
             <CreateVenue openCreateVenue={openCreateVenue} handleCloseCreateVenue={handleCloseCreateVenue} setSignedInUser={setSignedInUser}/>
@@ -69,7 +68,7 @@ export default function Home({signedInUser, setSignedInUser}) {
             <ArtistCardContainer />
             <EventCardContainer />
             <VenueCardContainer /> 
-        </div>
+        </>
     )
 }
 

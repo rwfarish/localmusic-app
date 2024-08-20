@@ -1,65 +1,117 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
 import "../styles/dropdown.css";
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 const useStyles = makeStyles((theme) => ({
-  typography: {
+  root: {
+    display: "flex",
+  },
+  paper: {
+    marginRight: theme.spacing(2),
+  },
+  menuItem: {
     padding: theme.spacing(2),
   },
 }));
 
-export default function SimplePopover({ handleOpenCreateArtist }) {
+export default function MenuListComposition({ handleOpenCreateArtist }) {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
 
   return (
     <div>
-      <li
-        aria-describedby={id}
-        variant="contained"
-        color="primary"
-        onClick={handleClick}
+      <Button
+        ref={anchorRef}
+        aria-controls={open ? "menu-list-grow" : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+        endIcon={<ArrowDropDownIcon />}
+        style={{
+          fontFamily: "sans-serif",
+          fontWeight: "500",
+          fontSize: "16px",
+          color: "#edf0f1",
+          textDecoration: "none",
+          textTransform: "uppercase",
+        }}
       >
         Artists
-      </li>
-      <Popover
-        id={id}
+      </Button>
+      <Popper
         open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
+        anchorEl={anchorRef.current}
+        role={undefined}
+        transition
+        disablePortal
       >
-        <div className="dropdown">
-          <Typography className={classes.typography}>Browse Artists</Typography>
-          <Typography
-            className={classes.typography}
-            onClick={handleOpenCreateArtist}
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin:
+                placement === "bottom" ? "center top" : "center bottom",
+            }}
           >
-            Submit an Artist
-          </Typography>
-        </div>
-      </Popover>
+            <Paper>
+              <ClickAwayListener onClickAway={handleClose}>
+                {/* <div className="dropdown"> */}
+                <MenuList
+                  autoFocusItem={open}
+                  id="menu-list-grow"
+                  onKeyDown={handleListKeyDown}
+                >
+                  <MenuItem className={classes.menuItem}>Browse</MenuItem>
+
+                  <MenuItem
+                    className={classes.menuItem}
+                    onClick={handleOpenCreateArtist}
+                  >
+                    Submit
+                  </MenuItem>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
     </div>
   );
 }
